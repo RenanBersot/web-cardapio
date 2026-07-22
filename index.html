@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Digital</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Fontes Elegantes: Playfair Display (Títulos) e Inter (Textos) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Cabeçalho -->
+        <header>
+            <div class="logo">🍔</div>
+            <h1>Bite Burger</h1>
+            <p>Aberto até as 23h</p>
+        </header>
+
+        <!-- Navegação de Categorias -->
+        <nav class="categorias-nav" id="categorias-container">
+            <!-- As categorias serão injetadas aqui via JS -->
+        </nav>
+
+        <!-- Lista de Produtos -->
+        <main class="produtos-lista" id="produtos-container">
+            <!-- Os produtos serão injetados aqui via JS -->
+        </main>
+
+    <!-- Botão Flutuante da Sacola -->
+        <button class="fab-carrinho" id="btn-abrir-sacola">
+            🛒 Ver Sacola <span id="badge-sacola">(0)</span>
+        </button>
+    </div>
+
+    <!-- Modal da Sacola (Escondido por padrão) -->
+        <div id="modal-sacola" class="modal oculto">
+            <div class="modal-conteudo">
+                <div class="modal-header">
+                    <h2>Sua Sacola</h2>
+                    <button id="btn-fechar-sacola" class="btn-fechar">×</button>
+                </div>
+                <div id="lista-sacola" class="lista-sacola">
+                    <!-- Os itens adicionados aparecerão aqui -->
+                </div>
+                <div class="modal-footer">
+                    <div class="total-linha">
+                        <span>Total:</span>
+                        <span id="valor-total-sacola">R$ 0,00</span>
+                    </div>
+                    <button class="btn-finalizar">Finalizar Pedido</button>
+                </div>
+            </div>
+        </div>
+
+<!-- Essa linha conecta o Supabase -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,395 @@
+/* --- PALETA DARK GOURMET --- */
+:root {
+    --primary: #d4af37;       /* Dourado (Gold) para os botões e destaques */
+    --accent: #b5952f;        /* Dourado levemente mais escuro para o hover */
+    --bg-body: #0a0a0a;       /* Fundo externo quase preto */
+    --bg-app: #141414;        /* Fundo do app escuro elegante */
+    --bg-card: #1f1f1f;       /* Fundo dos cards levemente mais claro que o app */
+    --text-main: #f5f5f5;     /* Texto claro (branco suave) */
+    --text-muted: #9e9e9e;    /* Cinza para descrições */
+    --price: #d4af37;         /* Preço combinando com o dourado */
+    --border-soft: rgba(255, 255, 255, 0.06); /* Linhas divisórias sutis */
+    --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.5);
+    --shadow-hover: 0 15px 35px rgba(0, 0, 0, 0.8);
+    --radius-soft: 12px;
+    --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: var(--bg-body);
+    color: var(--text-main);
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.app-container {
+    width: 100%;
+    max-width: 480px;
+    background-color: var(--bg-app);
+    position: relative;
+    padding-bottom: 120px;
+    box-shadow: 0 0 50px rgba(0,0,0,0.8); /* Sombra pesada para destacar no desktop */
+}
+
+/* --- HEADER GOURMET --- */
+header {
+    text-align: center;
+    padding: 48px 20px 32px;
+    background-color: var(--bg-app);
+}
+
+header .logo { 
+    font-size: 42px; 
+    margin-bottom: 12px;
+}
+
+header h1 { 
+    font-family: 'Playfair Display', serif;
+    font-size: 32px; 
+    font-weight: 700; 
+    color: var(--text-main);
+    letter-spacing: -0.5px;
+    font-style: italic;
+}
+
+header p { 
+    color: var(--text-muted); 
+    font-size: 13px; 
+    margin-top: 8px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 300;
+}
+
+/* --- CATEGORIAS MINIMALISTAS --- */
+.categorias-nav {
+    display: flex;
+    gap: 16px;
+    padding: 10px 24px 24px;
+    overflow-x: auto;
+    white-space: nowrap;
+    scrollbar-width: none;
+}
+.categorias-nav::-webkit-scrollbar { display: none; }
+
+.btn-categoria {
+    background-color: transparent;
+    border: none;
+    padding: 8px 4px;
+    font-weight: 400;
+    font-size: 15px;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: var(--transition);
+    position: relative;
+}
+
+.btn-categoria::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary);
+    transition: var(--transition);
+    transform: translateX(-50%);
+}
+
+.btn-categoria.ativo {
+    color: var(--text-main);
+    font-weight: 600;
+}
+
+.btn-categoria.ativo::after {
+    width: 100%;
+}
+
+/* --- CARDS DE PRODUTOS PREMIUM --- */
+.produtos-lista { 
+    padding: 0 24px; 
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.card-produto {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    background-color: var(--bg-card);
+    border-radius: var(--radius-soft);
+    transition: var(--transition);
+    box-shadow: var(--shadow-soft);
+    border: 1px solid var(--border-soft);
+}
+
+.card-produto:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-hover);
+    border-color: rgba(212, 175, 55, 0.3); /* Borda brilha em dourado no hover */
+}
+
+.card-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+}
+
+.card-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-info h3 { 
+    font-family: 'Playfair Display', serif;
+    font-size: 19px; 
+    font-weight: 600; 
+    color: var(--text-main);
+    margin-bottom: 6px;
+}
+
+.card-info p {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.5;
+    font-weight: 300;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.card-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 12px;
+}
+
+.preco {
+    font-weight: 600;
+    font-size: 16px;
+    color: var(--price);
+}
+
+.btn-add-sm {
+    background-color: transparent;
+    color: var(--text-main);
+    border: 1px solid var(--border-soft);
+    padding: 6px 16px;
+    border-radius: 30px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+.btn-add-sm:hover {
+    background-color: var(--primary);
+    color: #141414; /* Texto preto sobre fundo dourado */
+    border-color: var(--primary);
+}
+
+/* --- FAB (BOTÃO DA SACOLA) --- */
+.fab-carrinho {
+    position: fixed;
+    bottom: 32px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--primary);
+    color: #141414; /* Letra escura no fundo dourado dá muito contraste */
+    border: none;
+    padding: 16px 40px;
+    border-radius: 40px;
+    font-size: 15px;
+    font-weight: 700;
+    box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3);
+    cursor: pointer;
+    width: 85%;
+    max-width: 360px;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    z-index: 100;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.fab-carrinho:hover {
+    background-color: var(--accent);
+    transform: translateX(-50%) translateY(-3px);
+}
+
+/* --- MODAL DA SACOLA --- */
+.modal {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    z-index: 1000;
+    transition: var(--transition);
+}
+
+.modal.oculto {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.modal-conteudo {
+    background-color: var(--bg-app);
+    width: 100%;
+    max-width: 480px;
+    height: 85vh;
+    border-radius: 32px 32px 0 0;
+    display: flex;
+    flex-direction: column;
+    padding: 32px 24px;
+    transform: translateY(0);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 -10px 40px rgba(0,0,0,0.5);
+}
+
+.modal.oculto .modal-conteudo {
+    transform: translateY(100%);
+}
+
+.modal-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    color: var(--text-main);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border-soft);
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+.btn-fechar {
+    background: none;
+    border: none;
+    font-size: 32px;
+    color: var(--text-muted);
+    cursor: pointer;
+    line-height: 1;
+    transition: var(--transition);
+}
+.btn-fechar:hover {
+    color: var(--text-main);
+}
+
+.lista-sacola {
+    flex: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.item-sacola {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border-soft);
+}
+
+.item-sacola strong {
+    font-weight: 600;
+    font-size: 15px;
+    color: var(--text-main);
+}
+
+.modal-footer {
+    padding-top: 24px;
+    margin-top: auto;
+}
+
+.total-linha {
+    display: flex;
+    justify-content: space-between;
+    font-size: 20px;
+    font-weight: 600;
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 24px;
+    color: var(--text-main);
+}
+
+.btn-finalizar {
+    width: 100%;
+    background-color: var(--primary);
+    color: #141414;
+    border: none;
+    padding: 18px;
+    border-radius: 16px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: var(--transition);
+}
+
+/* --- ANIMAÇÕES --- */
+@keyframes shake-carrinho {
+    0%, 100% { transform: translateX(-50%) rotate(0); }
+    25% { transform: translateX(-50%) rotate(-3deg) scale(1.05); }
+    50% { transform: translateX(-50%) rotate(3deg) scale(1.05); }
+    75% { transform: translateX(-50%) rotate(-3deg) scale(1.05); }
+}
+
+.anima-shake {
+    animation: shake-carrinho 0.4s ease-in-out !important;
+}
+
+.btn-finalizar.loading {
+    background-color: var(--accent);
+    color: transparent !important;
+    pointer-events: none;
+}
+
+.btn-finalizar.loading::after {
+    content: "";
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    top: 50%;
+    left: 50%;
+    margin-top: -12px;
+    margin-left: -12px;
+    border: 2px solid rgba(20, 20, 20, 0.3); /* Spinner escuro para combinar com o botão dourado */
+    border-top-color: #141414;
+    border-radius: 50%;
+    animation: spinner 0.8s linear infinite;
+}
+
+.btn-finalizar.success { 
+    background-color: #27ae60; 
+    color: #fff !important;
+}
+
+@keyframes spinner { to { transform: rotate(360deg); } }
