@@ -23,3 +23,40 @@ Um cardápio digital interativo e responsivo, desenvolvido com foco na experiên
 1. Clone este repositório:
    ```bash
    git clone [https://github.com/RenanBersot/web-cardapio.git](https://github.com/RenanBersot/web-cardapio.git)
+   
+2. Acesse a pasta do projeto:
+    Bash
+
+    cd web-cardapio
+
+    Configure o Banco de Dados (Supabase):
+
+        Crie um projeto no Supabase.
+
+        Execute o script SQL (fornecido na documentação do projeto) para criar as tabelas categorias e produtos.
+
+        Desative o RLS (Row Level Security) para leitura pública ou configure as políticas de acesso.
+
+    Conecte as variáveis de ambiente:
+
+        No arquivo script.js, insira a sua SUPABASE_URL e SUPABASE_PUBLISHABLE_KEY.
+
+    Abra o arquivo index.html em seu navegador ou utilize a extensão Live Server.
+
+3. Modelagem de Dados
+
+O banco de dados foi estruturado com as seguintes tabelas principais:
+
+    categorias: id, nome, ordem
+
+    produtos: id, categoria_id (FK), nome, descricao, preco, url_imagem, ativo
+
+Desenvolvido por Renan Pereira Bersot
+
+Lembre-se de trocar o `SEU-USUARIO` no link do `git clone` pelo seu usuário real do GitHub.
+
+Para salvar essa atualização maravilhosa, você só precisa rodar os comandos básicos no terminal do VS Code:
+```bash
+git add README.md
+git commit -m "docs: atualiza README com tecnologias e features do projeto final"
+git push origin main
